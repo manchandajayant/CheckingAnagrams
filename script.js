@@ -40,3 +40,10 @@ function makeAnagram(string1, string2) {
   let result = string1.length - count + (string2.length - count);
   return result;
 }
+
+console.log(
+  makeAnagram(
+    "absdjkvuahdakejfnfauhdsaavasdlkj",
+    "djfladfhiawasdkjvalskufhafablsdkashlahdfa"
+  )
+);
