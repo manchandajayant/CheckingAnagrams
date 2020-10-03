@@ -1,10 +1,12 @@
-function getCharMap(string) {
-  let map = {};
+
+
+function getCharObject(string) {
+  let charObject = {};
 
   for (let char of string) {
-    map[char] ? (map[char] += 1) : (map[char] = 1);
+    charObject[char] ? (charObject[char] += 1) : (charObject[char] = 1);
   }
-  return map;
+  return charObject;
 }
 
 function checkAnagram(string1, string2) {
@@ -14,18 +16,17 @@ function checkAnagram(string1, string2) {
     return "This cannot be an Anagram";
   }
 
-  const charMap1 = getCharMap(string1);
-  const charMap2 = getCharMap(string2);
-  console.log(charMap1, charMap2, count);
-  for (let char of Object.keys(charMap1)) {
-    console.log(
-      charMap1[char] !== charMap2[char],
-      charMap1[char],
-      charMap2[char]
-    );
-    if (charMap1[char] !== charMap2[char]) {
-      return false;
+  const charObject1 = getCharObject(string1);
+  const charObject2 = getCharObject(string2);
+
+
+  for (let char of Object.keys(charObject1)) {
+    
+    if (charObject1[char] !== charObject2[char]) {
+      return "No It is not an Anagram";
     }
   }
-  return true;
+  return "Yes!! It is an Anangram";
 }
+
+console.log(checkAnagram("apple","alppe"))
